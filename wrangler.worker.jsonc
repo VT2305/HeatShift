@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "heatshift",
+  "main": "./dist/server/index.js",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "no_bundle": true,
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": ["**/*.js", "**/*.mjs"]
+    }
+  ],
+  "assets": {
+    "directory": "./dist/client"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "heatshift-production",
+      "database_id": "54d5c7a7-2a07-4c53-97c4-5bd5b8f99cc7",
+      "migrations_dir": "./drizzle"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
